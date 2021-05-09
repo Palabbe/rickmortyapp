@@ -1,21 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import './App.css';
-import CharsList from "./components/CharsList";
+import RouterApp from "./Router";
 
-function App() {
-  
-const [active, setActive] = useState(false)
-
-const handleChange = () => {
-  setActive(!active)
-}
-  
+function App() {  
   return (
     <div className="App">
-     <CharsList
-     handleChange={handleChange}
-     active={active}
-     />
+      <RouterApp/>
     </div>
   );
 }

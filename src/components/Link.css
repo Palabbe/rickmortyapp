@@ -1,0 +1,15 @@
+.link {
+    margin: 3%;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;  
+}
+
+.link:hover {
+    background-color: pink;
+}

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./Card.css"
 
-export default function CharCard ({name, status, image, species, gender, active, handleChange}) {
+export default function CharCard ({id, name, status, image, species, gender, deleteChar}) {
     
 const [favorite, setFavorite] = useState(false)
 
@@ -10,19 +12,25 @@ const handleFavorite = () => {
     
     return (
     <div className="charCard">
-        <img className="charImage" src={image} alt="character"/>
-        <h2 className="charName">{name}</h2>
-        <p className="charStatus">{status}</p>
-        <p className="charSpecies">{species}</p>
-        <p className="charGender">{gender}</p>
-
+        <img src={image} alt="character"/>
+        <h2>{name}</h2>
+        <p>{status}</p>
+        <p>{species}</p>
+        <p>{gender}</p>
+        
+        <div className="cardFooter">
         {
             favorite ? (
-                <div onClick={()=> handleFavorite()}><i class="fas fa-heart fa-lg" style={{color:"pink"}}></i></div>
+                <div onClick={()=> handleFavorite()}><i class="fas fa-heart fa-lg" style={{color:"red"}}></i></div>
             ) : (
-                <div onClick={()=> handleFavorite()}><i class="far fa-heart fa-lg" style={{color:"pink"}}></i></div>
+                <div onClick={()=> handleFavorite()}><i class="far fa-heart fa-lg" style={{color:"red"}}></i></div>
             )
         }
+
+        <div onClick={()=> deleteChar(id)}><i class="fas fa-trash-alt"></i></div>
+
+        <Link to={`/characters/${id}`}>Voir plus</Link>
+        </div>
 
     </div>
     )
