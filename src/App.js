@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
+import CharsList from "./components/CharsList";
 
 function App() {
+  
+const [active, setActive] = useState(false)
+
+const handleChange = () => {
+  setActive(!active)
+}
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <CharsList
+     handleChange={handleChange}
+     active={active}
+     />
     </div>
   );
 }
